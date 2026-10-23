@@ -1,7 +1,6 @@
-const API_URL = 'http://localhost:3000/api'; // Endereço onde o back-end do seu amigo vai rodar
+const API_URL = 'http://localhost:3000/api'; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Lógica de Login
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
@@ -31,14 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Exibir nome do usuário na Index e Logout
     const nomeUsuarioEl = document.getElementById('nomeUsuario');
     if (nomeUsuarioEl) {
         const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
         if (usuario) {
             nomeUsuarioEl.textContent = usuario.nome;
         } else {
-            window.location.href = 'login.html'; // Protege a página se não estiver logado
+            window.location.href = 'login.html'; 
         }
 
         document.getElementById('btnLogout').addEventListener('click', () => {
@@ -47,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Listar e gerenciar Discos
     const tabelaDiscosBody = document.getElementById('tabelaDiscosBody');
     if (tabelaDiscosBody) {
         carregarDiscos();
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Gestão de Movimentações (Entradas/Saídas)
     const movimentacaoForm = document.getElementById('movimentacaoForm');
     if (movimentacaoForm) {
         carregarSelectDiscos();
@@ -123,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Funções auxiliares de API
 async function carregarDiscos(termo = '') {
     try {
         const url = termo ? `${API_URL}/discos/busca?termo=${encodeURIComponent(termo)}` : `${API_URL}/discos`;
