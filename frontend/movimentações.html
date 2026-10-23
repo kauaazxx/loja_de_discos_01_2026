@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Control - Movimentações</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1>Vinyl Control - Vendas e Reposições</h1>
+        <a href="index.html" class="btn-secondary">Voltar ao Início</a>
+    </header>
+
+    <main class="container">
+        <h2>Registrar Movimentação de Estoque</h2>
+
+        <form id="movimentacaoForm" class="form-grid">
+            <div class="input-group">
+                <label>Selecionar Disco</label>
+                <select id="selectDisco" required>
+                    <option value="">Carregando discos...</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Tipo de Movimentação</label>
+                <select id="tipo_movimentacao" required>
+                    <option value="entrada">Reposição (Entrada)</option>
+                    <option value="saida">Venda (Saída)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Quantidade</label>
+                <input type="number" id="qtdMovimentacao" min="1" required>
+            </div>
+            <div class="input-group">
+                <label>Data da Movimentação</label>
+                <input type="date" id="data_movimentacao" required>
+            </div>
+            <div class="input-group full-width">
+                <label>Observação</label>
+                <input type="text" id="observacao" placeholder="Ex: Venda balcão / Compra fornecedor X">
+            </div>
+            <button type="submit" class="btn-primary">Registrar Movimentação</button>
+        </form>
+
+        <p id="alertaEstoque" class="alert-message"></p>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
